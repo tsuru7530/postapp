@@ -8,6 +8,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.index');
+        $lastName = 'Tanaka';
+        $firstName = 'Taro';
+        return view('post.index', compact('lastName','firstName'));
     }
 }
