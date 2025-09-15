@@ -31,7 +31,7 @@ class PostsController extends Controller
         return redirect('/');
     }
 
-        public function edit($id)
+    public function edit($id)
     {
         $post = Post::findOrFail($id);
         return view('posts.edit', compact('post'));
@@ -45,11 +45,17 @@ class PostsController extends Controller
         ]);
 
         $post = Post::findOrFail($id);
-
         $post->title = $validated['title'];
         $post->body  = $validated['body'];
         $post->save();
 
+        return redirect('/');
+    }
+    
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
         return redirect('/');
     }
 }
