@@ -9,11 +9,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = [
-            ['title' => 'first post', 'body' => 'Hello'],
-            ['title' => 'second post', 'body' => 'My name is'],
-            ['title' => 'third post', 'body' => 'Tanaka Taro']
-        ];
+        $posts = Post::all();
         return view('posts.index', compact('posts'));
     }
     
