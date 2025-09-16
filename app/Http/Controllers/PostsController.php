@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post; 
+use App\Models\Comment; 
 
 class PostsController extends Controller
 {
@@ -11,6 +12,14 @@ class PostsController extends Controller
     {
         $posts = Post::all();
         return view('posts.index', compact('posts'));
+    }
+
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        $comment = new Comment();
+        $comments = $post -> comments;
+        return view('posts.show', compact('post', 'comment', 'comments'));
     }
     
     public function create()

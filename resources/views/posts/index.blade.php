@@ -7,7 +7,7 @@
     <h1>Posts</h1>
     <ul>
       @foreach($posts as $post)
-        <li>Title: {{$post -> title}} Body: {{$post -> body}}</li>
+        <li>タイトル: {{$post -> title}} 本文: {{$post -> body}}</li>
         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
             @csrf
             @method('DELETE')
