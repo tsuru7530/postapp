@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Post index</title>
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
 </head>
 <body>
     <h1>Posts</h1>
@@ -15,6 +17,7 @@
         </form>
       @endforeach
     </ul>
+    <div id='react-root'></div>
     <script src="{{ asset('js/sample.js') }}"></script>
 </body>
 </html>
