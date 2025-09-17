@@ -15,5 +15,6 @@
         </form>
       @endforeach
     </ul>
+    <script src="{{ asset('js/sample.js') }}"></script>
 </body>
 </html>
