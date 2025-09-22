@@ -11,7 +11,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        $userName = "hogehoge";
+        return view('posts.index', compact('posts','userName'));
     }
 
     public function show($id)
