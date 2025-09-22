@@ -18,6 +18,9 @@
       @endforeach
     </ul>
     <div id='react-root'></div>
-    <script src="{{ asset('js/sample.js') }}"></script>
+    <script>
+      var userName = @json($userName);
+      console.log(userName);
+    </script>
 </body>
 </html>

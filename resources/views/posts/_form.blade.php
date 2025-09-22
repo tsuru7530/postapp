@@ -18,6 +18,27 @@
         <p style="color: red;">{{ $message }}</p>
     @enderror
 </div>
-<button type="submit">
+<button type="button", id="submitBtn">
   {{isset($post -> id) ? '更新する' : '作成する'}}
 </button>
+<script>
+    var submitBtn = document.getElementById('submitBtn');
+    submitBtn.addEventListener('click', async() => {
+        var title = document.getElementById('title').value;
+        var body = document.getElementById('body').value;
+        const token = document.querySelector('input[name="_token"]').value;
+        const response = await fetch('/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': token
+            },
+            body: JSON.stringify({title, body})
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data.success){
+            alert('保存しました');
+        }
+    } );
+</script>

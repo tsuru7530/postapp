@@ -11,7 +11,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        $userName = "hogehoge";
+        return view('posts.index', compact('posts','userName'));
     }
 
     public function show($id)
@@ -35,9 +36,13 @@ class PostsController extends Controller
             'body'  => 'required',
         ]);
 
-        Post::create($validated);
+        $post = Post::create($validated);
+        return response()->json([
+            'success' => true,
+            'post' => $post,
+        ]);
 
-        return redirect('/');
+        // return redirect('/');
     }
 
     public function edit($id)
