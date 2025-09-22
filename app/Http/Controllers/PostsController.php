@@ -36,9 +36,13 @@ class PostsController extends Controller
             'body'  => 'required',
         ]);
 
-        Post::create($validated);
+        $post = Post::create($validated);
+        return response()->json([
+            'success' => true,
+            'post' => $post,
+        ]);
 
-        return redirect('/');
+        // return redirect('/');
     }
 
     public function edit($id)
